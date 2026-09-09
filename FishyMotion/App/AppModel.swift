@@ -27,7 +27,9 @@ final class AppModel {
     init(store: ProgressStore = ProgressStore()) {
         self.store = store
         var loaded = store.load()
-        if ProcessInfo.processInfo.arguments.contains("ui-testing") {
+        if ProcessInfo.processInfo.arguments.contains(where: {
+            $0 == "ui-testing" || $0 == "auto-play" || $0 == "-auto-play"
+        }) {
             loaded.tutorialSeen = true
         }
         self.progress = loaded

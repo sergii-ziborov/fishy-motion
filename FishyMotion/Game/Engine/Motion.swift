@@ -57,8 +57,8 @@ struct School: Equatable, Sendable {
             let dx = creature.slot.x * c - creature.slot.y * s
             let dy = creature.slot.x * s + creature.slot.y * c
             return Pose(
-                x: min(0.90, max(0.10, center.x + dx)),
-                y: min(0.88, max(0.14, center.y + dy)),
+                x: min(1, max(0, center.x + dx)),
+                y: min(1, max(0, center.y + dy)),
                 heading: center.heading
             )
         }
@@ -274,34 +274,34 @@ enum Motion {
     }
 
     static func slots(count: Int) -> [SIMD2<Double>] {
-        let scale = count >= 8 ? 0.145 : 0.175
+        let scale = count >= 8 ? 0.10 : 0.118
         switch count {
         case 4:
             return [
-                SIMD2(-scale * 1.15, 0),
-                SIMD2(scale * 1.15, 0),
-                SIMD2(0, -scale * 0.95),
-                SIMD2(0, scale * 0.95)
+                SIMD2(-scale * 1.2, 0),
+                SIMD2(scale * 1.2, 0),
+                SIMD2(0, -scale),
+                SIMD2(0, scale)
             ]
         case 8:
             return [
-                SIMD2(-scale * 1.35, -scale * 1.05),
-                SIMD2(0, -scale * 1.15),
-                SIMD2(scale * 1.35, -scale * 1.05),
-                SIMD2(-scale * 1.45, 0),
-                SIMD2(scale * 1.45, 0),
-                SIMD2(-scale * 1.35, scale * 1.05),
-                SIMD2(0, scale * 1.15),
-                SIMD2(scale * 1.35, scale * 1.05)
+                SIMD2(-scale * 1.25, -scale),
+                SIMD2(0, -scale * 1.1),
+                SIMD2(scale * 1.25, -scale),
+                SIMD2(-scale * 1.35, 0),
+                SIMD2(scale * 1.35, 0),
+                SIMD2(-scale * 1.25, scale),
+                SIMD2(0, scale * 1.1),
+                SIMD2(scale * 1.25, scale)
             ]
         default:
             return [
-                SIMD2(-scale * 1.35, -scale * 0.95),
-                SIMD2(0, -scale * 1.15),
-                SIMD2(scale * 1.35, -scale * 0.95),
-                SIMD2(-scale * 1.35, scale * 0.95),
-                SIMD2(0, scale * 1.15),
-                SIMD2(scale * 1.35, scale * 0.95)
+                SIMD2(-scale * 1.25, -scale * 0.95),
+                SIMD2(0, -scale * 1.1),
+                SIMD2(scale * 1.25, -scale * 0.95),
+                SIMD2(-scale * 1.25, scale * 0.95),
+                SIMD2(0, scale * 1.1),
+                SIMD2(scale * 1.25, scale * 0.95)
             ]
         }
     }

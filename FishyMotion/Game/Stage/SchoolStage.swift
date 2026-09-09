@@ -31,8 +31,7 @@ struct SchoolStage: View {
                     .accessibilityHidden(true)
 
                 ForEach(Array(poses.enumerated()), id: \.offset) { index, pose in
-                    let x = pose.x * size.width
-                    let y = pose.y * size.height
+                    let point = arenaPoint(for: pose, in: size, visual: visual)
                     CreatureView(
                         theme: school.theme,
                         heading: pose.heading,
@@ -45,7 +44,7 @@ struct SchoolStage: View {
                         ring: ring(for: index)
                     )
                     .frame(width: visual, height: visual)
-                    .position(x: x, y: y)
+                    .position(x: point.x, y: point.y)
                     .zIndex(pressIndex == index ? 10 : Double(index))
                     .accessibilityIdentifier("fish-\(index)")
                     .accessibilityLabel(accessibilityName(index))
@@ -65,9 +64,12 @@ struct SchoolStage: View {
                         pressIndex = nil
                     }
             )
+            .frame(width: size.width, height: size.height)
+            .clipped()
             .accessibilityElement(children: .contain)
         }
         .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
+        .clipped()
         .overlay(
             RoundedRectangle(cornerRadius: 28, style: .continuous)
                 .stroke(Color.white.opacity(0.12), lineWidth: 1)
@@ -75,7 +77,18 @@ struct SchoolStage: View {
     }
 
     private func fishSize(in size: CGSize) -> CGFloat {
-        min(size.width, size.height) * (school.count >= 8 ? 0.175 : 0.205)
+        min(size.width, size.height) * (school.count >= 8 ? 0.155 : 0.175)
+    }
+
+    private func arenaPoint(for pose: Pose, in size: CGSize, visual: CGFloat) -> CGPoint {
+        let padX = visual * 0.52 + 8
+        let padY = visual * 0.52 + 8
+        let innerW = max(size.width - 2 * padX, 1)
+        let innerH = max(size.height - 2 * padY, 1)
+        return CGPoint(
+            x: padX + pose.x * innerW,
+            y: padY + pose.y * innerH
+        )
     }
 
     private func shouldDim(_ index: Int) -> Bool {
@@ -100,11 +113,13 @@ struct SchoolStage: View {
     }
 
     private func nearest(to point: CGPoint, in size: CGSize) -> Int? {
-        let maxDistance = fishSize(in: size) * 0.72
+        let visual = fishSize(in: size)
+        let maxDistance = visual * 0.7
         var best: (Int, CGFloat)?
         for (index, pose) in poses.enumerated() {
-            let dx = point.x - pose.x * size.width
-            let dy = point.y - pose.y * size.height
+            let center = arenaPoint(for: pose, in: size, visual: visual)
+            let dx = point.x - center.x
+            let dy = point.y - center.y
             let d = (dx * dx + dy * dy).squareRoot()
             if d <= maxDistance, best == nil || d < best!.1 {
                 best = (index, d)

@@ -45,14 +45,17 @@ struct MotionTests {
 
     @Test("Poses stay on the arena")
     func posesOnArena() {
-        let level = LevelCatalog.level(world: .coral, index: 1)
-        let school = SchoolBuilder.build(level: level, seed: 3, theme: .classic)
-        for i in 0..<20 {
-            let t = Double(i) * 0.25
-            for pose in school.poses(at: t) {
-                #expect(pose.x > 0.02 && pose.x < 0.98)
-                #expect(pose.y > 0.02 && pose.y < 0.98)
-                #expect(pose.heading.isFinite)
+        for world in WorldID.allCases {
+            for level in LevelCatalog.levels(for: world) {
+                let school = SchoolBuilder.build(level: level, seed: 3, theme: .classic)
+                for i in 0..<16 {
+                    let t = Double(i) * 0.35
+                    for pose in school.poses(at: t) {
+                        #expect(pose.x >= 0 && pose.x <= 1)
+                        #expect(pose.y >= 0 && pose.y <= 1)
+                        #expect(pose.heading.isFinite)
+                    }
+                }
             }
         }
     }

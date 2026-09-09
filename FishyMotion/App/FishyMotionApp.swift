@@ -43,6 +43,13 @@ struct RootView: View {
         .animation(.easeInOut(duration: 0.22), value: screenKey)
         .tint(Palette.teal)
         .preferredColorScheme(.dark)
+        .onAppear {
+            if ProcessInfo.processInfo.arguments.contains(where: { $0 == "auto-play" || $0 == "-auto-play" }),
+               model.screen == .home
+            {
+                model.playTapped()
+            }
+        }
     }
 
     private var screenKey: String {
