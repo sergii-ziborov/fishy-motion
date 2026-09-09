@@ -13,9 +13,6 @@ struct CreatureView: View {
 
     enum RingKind { case none, odd, miss, hint }
 
-    private static let classicFrames = ["FishClassic00", "FishClassic01", "FishClassic02", "FishClassic03"]
-    private static let classicOrder = [0, 1, 2, 3, 2, 1]
-
     var body: some View {
         ZStack {
             ringView
@@ -33,14 +30,15 @@ struct CreatureView: View {
     }
 
     private var spriteFish: some View {
-        let frames = Self.classicFrames
-        let order = Self.classicOrder
-        let idx = order[abs(Int((time * 11 + phase).rounded(.down))) % order.count]
-        return Image(frames[idx])
+        let beat = Darwin.sin(time * 9.2 + phase)
+        let facingLeft = Darwin.cos(heading) < 0
+        let tilt = Darwin.sin(heading) * 0.22 + beat * 0.08
+        return Image("FishClassic00")
             .resizable()
             .interpolation(.high)
             .scaledToFit()
-            .rotationEffect(.radians(heading))
+            .scaleEffect(x: (facingLeft ? -1 : 1) * (1 + beat * 0.04), y: 1 - beat * 0.03)
+            .rotationEffect(.radians(tilt))
             .opacity(dimmed ? 0.42 : 1)
             .padding(4)
     }
