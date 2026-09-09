@@ -77,8 +77,15 @@ struct CollectionView: View {
                     )
                     .aspectRatio(1, contentMode: .fit)
                 if let theme, unlocked {
-                    CreatureView(theme: theme, heading: 0.15, wiggle: 0.2)
+                    TimelineView(.animation) { timeline in
+                        CreatureView(
+                            theme: theme,
+                            heading: 0.15,
+                            wiggle: 0.2,
+                            time: timeline.date.timeIntervalSinceReferenceDate
+                        )
                         .padding(8)
+                    }
                 } else if theme != nil {
                     CreatureView(theme: .classic, heading: 0.15, wiggle: 0)
                         .opacity(0.18)

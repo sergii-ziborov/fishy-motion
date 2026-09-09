@@ -4,13 +4,48 @@ struct CreatureView: View {
     var theme: ThemeID
     var heading: Double
     var wiggle: Double
+    var time: Double = 0
+    var phase: Double = 0
     var highlighted: Bool = false
     var dimmed: Bool = false
+    var pressed: Bool = false
     var ring: RingKind = .none
 
     enum RingKind { case none, odd, miss, hint }
 
+    private static let classicFrames = ["FishClassic00", "FishClassic01", "FishClassic02", "FishClassic03"]
+    private static let classicOrder = [0, 1, 2, 3, 2, 1]
+
     var body: some View {
+        ZStack {
+            ringView
+            if theme == .classic {
+                spriteFish
+            } else {
+                canvasFish
+            }
+        }
+        .scaleEffect((highlighted || pressed) ? 1.14 : 1)
+        .shadow(color: .black.opacity(pressed ? 0.35 : 0.18), radius: pressed ? 10 : 6, y: 4)
+        .animation(.easeOut(duration: 0.12), value: pressed)
+        .animation(.easeInOut(duration: 0.18), value: highlighted)
+        .allowsHitTesting(false)
+    }
+
+    private var spriteFish: some View {
+        let frames = Self.classicFrames
+        let order = Self.classicOrder
+        let idx = order[abs(Int((time * 11 + phase).rounded(.down))) % order.count]
+        return Image(frames[idx])
+            .resizable()
+            .interpolation(.high)
+            .scaledToFit()
+            .rotationEffect(.radians(heading))
+            .opacity(dimmed ? 0.42 : 1)
+            .padding(4)
+    }
+
+    private var canvasFish: some View {
         Canvas { context, size in
             let center = CGPoint(x: size.width / 2, y: size.height / 2)
             var local = context
@@ -19,7 +54,6 @@ struct CreatureView: View {
             if dimmed {
                 local.opacity = 0.42
             }
-            drawRing(local, size: size)
             switch theme {
             case .classic: drawClassic(local, size: size)
             case .robots: drawRobot(local, size: size)
@@ -29,9 +63,24 @@ struct CreatureView: View {
             case .koi: drawKoi(local, size: size)
             }
         }
-        .scaleEffect(highlighted ? 1.08 : 1)
-        .animation(.easeInOut(duration: 0.18), value: highlighted)
-        .allowsHitTesting(false)
+    }
+
+    @ViewBuilder
+    private var ringView: some View {
+        if ring != .none {
+            Circle()
+                .stroke(ringColor.opacity(0.95), lineWidth: 4)
+                .scaleEffect(1.08)
+        }
+    }
+
+    private var ringColor: Color {
+        switch ring {
+        case .odd: Palette.success
+        case .miss: Palette.danger
+        case .hint: Palette.gold
+        case .none: .clear
+        }
     }
 
     private func drawRing(_ context: GraphicsContext, size: CGSize) {

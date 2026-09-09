@@ -25,8 +25,16 @@ struct ResultView: View {
                         Circle()
                             .stroke(Palette.aqua.opacity(0.55), lineWidth: 4)
                             .frame(width: 168, height: 168)
-                        CreatureView(theme: outcome.theme, heading: 0.18, wiggle: 0.35, ring: .odd)
+                        TimelineView(.animation) { timeline in
+                            CreatureView(
+                                theme: outcome.theme,
+                                heading: 0.18,
+                                wiggle: 0.35,
+                                time: timeline.date.timeIntervalSinceReferenceDate,
+                                ring: .odd
+                            )
                             .frame(width: 150, height: 150)
+                        }
                     }
                     .padding(.vertical, 8)
 

@@ -11,9 +11,12 @@ struct SchoolStage: View {
     var hintIndex: Int?
     var onTap: (Int) -> Void
 
+    @State private var pressIndex: Int?
+
     var body: some View {
         GeometryReader { geo in
             let size = geo.size
+            let visual = fishSize(in: size)
             ZStack {
                 Image(world.backgroundAsset)
                     .resizable()
@@ -30,28 +33,38 @@ struct SchoolStage: View {
                 ForEach(Array(poses.enumerated()), id: \.offset) { index, pose in
                     let x = pose.x * size.width
                     let y = pose.y * size.height
-                    Button {
-                        onTap(index)
-                    } label: {
-                        CreatureView(
-                            theme: school.theme,
-                            heading: pose.heading,
-                            wiggle: Darwin.sin(time * 10 + Double(index)),
-                            highlighted: picked == index,
-                            dimmed: shouldDim(index),
-                            ring: ring(for: index)
-                        )
-                        .frame(width: fishSize(in: size), height: fishSize(in: size))
-                        .contentShape(Rectangle())
-                    }
-                    .buttonStyle(.plain)
-                    .accessibilityElement(children: .ignore)
+                    CreatureView(
+                        theme: school.theme,
+                        heading: pose.heading,
+                        wiggle: Darwin.sin(time * 10 + Double(index)),
+                        time: time,
+                        phase: Double(index) * 1.7,
+                        highlighted: picked == index || pressIndex == index,
+                        dimmed: shouldDim(index),
+                        pressed: pressIndex == index,
+                        ring: ring(for: index)
+                    )
+                    .frame(width: visual, height: visual)
+                    .position(x: x, y: y)
+                    .zIndex(pressIndex == index ? 10 : Double(index))
                     .accessibilityIdentifier("fish-\(index)")
                     .accessibilityLabel(accessibilityName(index))
                     .accessibilityAddTraits(.isButton)
-                    .position(x: x, y: y)
                 }
             }
+            .contentShape(Rectangle())
+            .gesture(
+                DragGesture(minimumDistance: 0)
+                    .onChanged { value in
+                        pressIndex = nearest(to: value.location, in: size)
+                    }
+                    .onEnded { value in
+                        if let index = nearest(to: value.location, in: size) {
+                            onTap(index)
+                        }
+                        pressIndex = nil
+                    }
+            )
             .accessibilityElement(children: .contain)
         }
         .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
@@ -62,16 +75,14 @@ struct SchoolStage: View {
     }
 
     private func fishSize(in size: CGSize) -> CGFloat {
-        min(size.width, size.height) * (school.count >= 8 ? 0.16 : 0.19)
+        min(size.width, size.height) * (school.count >= 8 ? 0.175 : 0.205)
     }
 
     private func shouldDim(_ index: Int) -> Bool {
         switch phase {
         case .explaining, .complete, .correct:
             return index != oddIndex
-        case .missed:
-            return false
-        case .watching:
+        case .missed, .watching:
             return false
         }
     }
@@ -84,15 +95,18 @@ struct SchoolStage: View {
         case .missed:
             return index == picked ? .miss : .none
         case .watching:
-            return .none
+            return pressIndex == index ? .hint : .none
         }
     }
 
-    private func nearest(to point: SIMD2<Double>) -> Int? {
-        var best: (Int, Double)?
+    private func nearest(to point: CGPoint, in size: CGSize) -> Int? {
+        let maxDistance = fishSize(in: size) * 0.72
+        var best: (Int, CGFloat)?
         for (index, pose) in poses.enumerated() {
-            let d = hypot(pose.x - point.x, pose.y - point.y)
-            if d < 0.15, best == nil || d < best!.1 {
+            let dx = point.x - pose.x * size.width
+            let dy = point.y - pose.y * size.height
+            let d = (dx * dx + dy * dy).squareRoot()
+            if d <= maxDistance, best == nil || d < best!.1 {
                 best = (index, d)
             }
         }

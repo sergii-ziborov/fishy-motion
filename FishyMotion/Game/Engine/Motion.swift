@@ -56,7 +56,11 @@ struct School: Equatable, Sendable {
             let s = Darwin.sin(center.heading)
             let dx = creature.slot.x * c - creature.slot.y * s
             let dy = creature.slot.x * s + creature.slot.y * c
-            return Pose(x: center.x + dx, y: center.y + dy, heading: center.heading)
+            return Pose(
+                x: min(0.90, max(0.10, center.x + dx)),
+                y: min(0.88, max(0.14, center.y + dy)),
+                heading: center.heading
+            )
         }
     }
 
@@ -84,7 +88,7 @@ enum Motion {
         case .weave:
             MotionParams(speed: 0.22, phase: 0, corner: 0.05, amplitude: 0.12, surge: 0, pauseDuration: 0, reverse: false)
         case .circle:
-            MotionParams(speed: 1, phase: 0, corner: 0.05, amplitude: 0.22, surge: 0, pauseDuration: 0, reverse: false)
+            MotionParams(speed: 1, phase: 0, corner: 0.05, amplitude: 0.16, surge: 0, pauseDuration: 0, reverse: false)
         case .figureEight:
             MotionParams(speed: 1, phase: 0, corner: 0.05, amplitude: 0.20, surge: 0, pauseDuration: 0, reverse: false)
         case .bob:
@@ -149,10 +153,10 @@ enum Motion {
     }
 
     static func loopPose(distance: Double, corner: Double) -> Pose {
-        let left = 0.20
-        let right = 0.80
-        let top = 0.30
-        let bottom = 0.70
+        let left = 0.28
+        let right = 0.72
+        let top = 0.34
+        let bottom = 0.66
         let maxCorner = min((right - left) / 2 - 0.02, (bottom - top) / 2 - 0.02)
         let c = min(max(corner, 0.01), maxCorner)
         let h = right - left - 2 * c
@@ -212,7 +216,7 @@ enum Motion {
 
     static func weavePose(time: Double, period: Double, params: MotionParams, sign: Double) -> Pose {
         let traveled = sign * params.speed * time
-        let (x, vx) = pingPong(traveled, lo: 0.22, hi: 0.78)
+        let (x, vx) = pingPong(traveled, lo: 0.30, hi: 0.70)
         let omega = 2 * Double.pi / max(period, 0.5)
         let y = 0.50 + params.amplitude * Darwin.sin(omega * time)
         let dy = params.amplitude * omega * Darwin.cos(omega * time)
@@ -233,8 +237,8 @@ enum Motion {
     static func eightPose(time: Double, period: Double, params: MotionParams, sign: Double) -> Pose {
         let omega = sign * 2 * Double.pi / max(period, 0.5) * params.speed
         let a = omega * time
-        let ax = 0.22
-        let ay = params.amplitude
+        let ax = 0.18
+        let ay = params.amplitude * 0.85
         let x = 0.50 + ax * Darwin.sin(a)
         let y = 0.50 + ay * Darwin.sin(2 * a)
         let dx = ax * Darwin.cos(a) * omega
@@ -252,7 +256,7 @@ enum Motion {
     static func surgePose(time: Double, period: Double, params: MotionParams, sign: Double) -> Pose {
         let omega = 2 * Double.pi / max(period, 0.5)
         let distance = sign * (params.speed * time + params.surge * params.speed * period / omega * (1 - Darwin.cos(omega * time)))
-        let (x, vx) = pingPong(distance, lo: 0.22, hi: 0.78)
+        let (x, vx) = pingPong(distance, lo: 0.30, hi: 0.70)
         let y = 0.50 + 0.04 * Darwin.sin(omega * time)
         return Pose(x: x, y: y, heading: vx >= 0 ? 0 : Double.pi)
     }
@@ -270,34 +274,34 @@ enum Motion {
     }
 
     static func slots(count: Int) -> [SIMD2<Double>] {
-        let scale = count >= 8 ? 0.085 : 0.10
+        let scale = count >= 8 ? 0.145 : 0.175
         switch count {
         case 4:
             return [
-                SIMD2(-scale, 0),
-                SIMD2(scale, 0),
-                SIMD2(0, -scale * 0.8),
-                SIMD2(0, scale * 0.8)
+                SIMD2(-scale * 1.15, 0),
+                SIMD2(scale * 1.15, 0),
+                SIMD2(0, -scale * 0.95),
+                SIMD2(0, scale * 0.95)
             ]
         case 8:
             return [
-                SIMD2(-scale * 1.2, -scale * 0.85),
-                SIMD2(0, -scale * 0.85),
-                SIMD2(scale * 1.2, -scale * 0.85),
-                SIMD2(-scale * 1.2, 0),
-                SIMD2(scale * 1.2, 0),
-                SIMD2(-scale * 1.2, scale * 0.85),
-                SIMD2(0, scale * 0.85),
-                SIMD2(scale * 1.2, scale * 0.85)
+                SIMD2(-scale * 1.35, -scale * 1.05),
+                SIMD2(0, -scale * 1.15),
+                SIMD2(scale * 1.35, -scale * 1.05),
+                SIMD2(-scale * 1.45, 0),
+                SIMD2(scale * 1.45, 0),
+                SIMD2(-scale * 1.35, scale * 1.05),
+                SIMD2(0, scale * 1.15),
+                SIMD2(scale * 1.35, scale * 1.05)
             ]
         default:
             return [
-                SIMD2(-scale * 1.15, -scale * 0.7),
-                SIMD2(0, -scale * 0.85),
-                SIMD2(scale * 1.15, -scale * 0.7),
-                SIMD2(-scale * 1.15, scale * 0.7),
-                SIMD2(0, scale * 0.85),
-                SIMD2(scale * 1.15, scale * 0.7)
+                SIMD2(-scale * 1.35, -scale * 0.95),
+                SIMD2(0, -scale * 1.15),
+                SIMD2(scale * 1.35, -scale * 0.95),
+                SIMD2(-scale * 1.35, scale * 0.95),
+                SIMD2(0, scale * 1.15),
+                SIMD2(scale * 1.35, scale * 0.95)
             ]
         }
     }
