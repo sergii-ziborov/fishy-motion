@@ -112,27 +112,57 @@ struct StarRow: View {
     }
 }
 
-struct ScreenHeader: View {
+struct ScreenHeader<Trailing: View>: View {
     var title: String
     var back: () -> Void
+    var trailing: Trailing
+
+    init(title: String, back: @escaping () -> Void, @ViewBuilder trailing: () -> Trailing) {
+        self.title = title
+        self.back = back
+        self.trailing = trailing()
+    }
 
     var body: some View {
-        HStack {
+        HStack(spacing: 8) {
             Button(action: back) {
                 Image(systemName: "chevron.left")
                     .font(.system(size: 17, weight: .bold))
                     .foregroundStyle(.white)
+                    .frame(width: 44, height: 44)
+                    .background(Color.white.opacity(0.16), in: Circle())
             }
             .accessibilityIdentifier("back-button")
-            Spacer()
             Text(title)
                 .font(.fmDisplay(22))
                 .foregroundStyle(.white)
-            Spacer()
-            Color.clear.frame(width: 18)
+                .lineLimit(1)
+                .minimumScaleFactor(0.75)
+                .frame(maxWidth: .infinity)
+            trailing
+                .frame(minWidth: 44, alignment: .trailing)
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 12)
+        .padding(.horizontal, 16)
+        .padding(.top, 8)
+        .padding(.bottom, 10)
+    }
+}
+
+struct HeaderSpacer: View {
+    var body: some View {
+        Color.clear.frame(width: 44, height: 44)
+    }
+}
+
+extension ScreenHeader where Trailing == HeaderSpacer {
+    init(title: String, back: @escaping () -> Void) {
+        self.init(title: title, back: back) { HeaderSpacer() }
+    }
+}
+
+extension View {
+    func fillScreenTop() -> some View {
+        frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
     }
 }
 

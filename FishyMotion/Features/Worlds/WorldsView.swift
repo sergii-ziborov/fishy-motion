@@ -5,44 +5,29 @@ struct WorldsView: View {
     @State private var world: WorldID = .coral
 
     var body: some View {
-        ZStack {
-            OceanBackdrop(asset: world.backgroundAsset, dim: 0.18)
-            VStack(spacing: 0) {
-                HStack {
-                    Button { model.goHome() } label: {
-                        Image(systemName: "chevron.left")
-                            .font(.system(size: 17, weight: .bold))
-                            .foregroundStyle(.white)
-                            .frame(width: 42, height: 42)
-                            .background(Color.white.opacity(0.16), in: Circle())
-                    }
-                    .accessibilityIdentifier("back-button")
-                    Spacer()
-                    Text("Worlds")
-                        .font(.fmDisplay(24))
-                        .foregroundStyle(.white)
-                    Spacer()
-                    Image(systemName: "star.fill")
-                        .foregroundStyle(Palette.gold)
-                        .frame(width: 42, height: 42)
-                        .background(Color.white.opacity(0.16), in: Circle())
-                }
-                .padding(.horizontal, 16)
-                .padding(.top, 8)
-
-                TabView(selection: $world) {
-                    ForEach(WorldID.allCases) { item in
-                        worldMap(item)
-                            .tag(item)
-                    }
-                }
-                .tabViewStyle(.page(indexDisplayMode: .never))
-
-                worldFooter
-                    .padding(.horizontal, 24)
-                    .padding(.bottom, 18)
+        VStack(spacing: 0) {
+            ScreenHeader(title: "Worlds", back: { model.goHome() }) {
+                Image(systemName: "star.fill")
+                    .foregroundStyle(Palette.gold)
+                    .frame(width: 44, height: 44)
+                    .background(Color.white.opacity(0.16), in: Circle())
             }
+
+            TabView(selection: $world) {
+                ForEach(WorldID.allCases) { item in
+                    worldMap(item)
+                        .tag(item)
+                }
+            }
+            .tabViewStyle(.page(indexDisplayMode: .never))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+            worldFooter
+                .padding(.horizontal, 24)
+                .padding(.bottom, 12)
         }
+        .fillScreenTop()
+        .background { OceanBackdrop(asset: world.backgroundAsset, dim: 0.18) }
         .onAppear {
             world = WorldID.allCases.first(where: { model.progress.isUnlocked($0) && model.progress.clearedCount(in: $0) < 12 }) ?? .coral
         }

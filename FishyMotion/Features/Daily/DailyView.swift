@@ -7,41 +7,41 @@ struct DailyView: View {
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
-        ZStack {
-            OceanBackdrop(asset: "SunkenRuinsBackground", dim: 0.35)
-            VStack(spacing: 0) {
-                ScreenHeader(title: "Daily Puzzle") { model.goHome() }
-                Spacer()
-                VStack(spacing: 18) {
-                    Image(systemName: "gift.fill")
-                        .font(.system(size: 64))
-                        .foregroundStyle(
-                            LinearGradient(
-                                colors: [Color(red: 0.98, green: 0.32, blue: 0.32), Color(red: 0.95, green: 0.72, blue: 0.18)],
-                                startPoint: .top,
-                                endPoint: .bottom
-                            )
+        VStack(spacing: 0) {
+            ScreenHeader(title: "Daily Puzzle") { model.goHome() }
+            VStack(spacing: 18) {
+                Spacer(minLength: 12)
+                Image(systemName: "gift.fill")
+                    .font(.system(size: 64))
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: [Color(red: 0.98, green: 0.32, blue: 0.32), Color(red: 0.95, green: 0.72, blue: 0.18)],
+                            startPoint: .top,
+                            endPoint: .bottom
                         )
-                        .shadow(color: .black.opacity(0.25), radius: 10, y: 6)
+                    )
+                    .shadow(color: .black.opacity(0.25), radius: 10, y: 6)
 
-                    Text("A new challenge every day!")
-                        .font(.fmBody(18))
-                        .foregroundStyle(.white)
-                        .multilineTextAlignment(.center)
+                Text("A new challenge every day!")
+                    .font(.fmBody(18))
+                    .foregroundStyle(.white)
+                    .multilineTextAlignment(.center)
 
-                    FMButton(title: "Play", kind: .ocean) {
-                        model.playDaily()
-                    }
-                    .padding(.horizontal, 36)
-                    .accessibilityIdentifier("daily-play-button")
-
-                    Label(countdown, systemImage: "clock")
-                        .font(.fmBody(14))
-                        .foregroundStyle(Palette.muted)
+                FMButton(title: "Play", kind: .ocean) {
+                    model.playDaily()
                 }
-                Spacer()
+                .padding(.horizontal, 36)
+                .accessibilityIdentifier("daily-play-button")
+
+                Label(countdown, systemImage: "clock")
+                    .font(.fmBody(14))
+                    .foregroundStyle(Palette.muted)
+                Spacer(minLength: 12)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .fillScreenTop()
+        .background { OceanBackdrop(asset: "SunkenRuinsBackground", dim: 0.35) }
         .onReceive(timer) { now = $0 }
     }
 

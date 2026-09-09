@@ -28,8 +28,6 @@ struct PlayView: View {
         now: Date
     ) -> some View {
         ZStack {
-            OceanBackdrop(asset: session.context.world.backgroundAsset, dim: 0.12)
-
             VStack(spacing: 8) {
                 hud(session: session)
                 SchoolStage(
@@ -48,6 +46,8 @@ struct PlayView: View {
                 .frame(maxHeight: .infinity)
             }
             .padding(.bottom, 12)
+            .fillScreenTop()
+            .background { OceanBackdrop(asset: session.context.world.backgroundAsset, dim: 0.12) }
 
             if session.phase == .missed {
                 missOverlay(session: session)
@@ -60,6 +60,7 @@ struct PlayView: View {
                 testHarness(session: session, now: now)
             }
         }
+        .fillScreenTop()
         .onChange(of: session.phase) { _, phase in
             if phase == .correct {
                 if model.progress.hapticsEnabled { Feedback.success() }

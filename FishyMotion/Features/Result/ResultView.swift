@@ -5,10 +5,8 @@ struct ResultView: View {
 
     var body: some View {
         if let outcome = model.lastOutcome {
-            ZStack {
-                OceanBackdrop(asset: outcome.world.backgroundAsset, dim: 0.28)
-                VStack(spacing: 18) {
-                    Spacer()
+            VStack(spacing: 18) {
+                    Spacer(minLength: 12)
                     StarRow(stars: outcome.stars, size: 36)
                     Text("Correct!")
                         .font(.system(size: 44, weight: .heavy, design: .rounded))
@@ -57,9 +55,10 @@ struct ResultView: View {
                         quiet("Home", icon: "house.fill") { model.goHome() }
                     }
                     .padding(.horizontal, 28)
-                    Spacer()
-                }
+                    Spacer(minLength: 12)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background { OceanBackdrop(asset: outcome.world.backgroundAsset, dim: 0.28) }
         } else {
             Palette.deep.onAppear { model.goHome() }
         }

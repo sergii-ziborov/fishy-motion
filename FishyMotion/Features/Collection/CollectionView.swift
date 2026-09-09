@@ -9,52 +9,38 @@ struct CollectionView: View {
     ]
 
     var body: some View {
-        ZStack {
-            OceanBackdrop(asset: "CrystalCaveBackground", dim: 0.45)
-            VStack(spacing: 0) {
-                HStack {
-                    Button { model.goHome() } label: {
-                        Image(systemName: "chevron.left")
-                            .font(.system(size: 17, weight: .bold))
-                            .foregroundStyle(.white)
-                            .frame(width: 42, height: 42)
-                            .background(Color.white.opacity(0.16), in: Circle())
+        VStack(spacing: 0) {
+            ScreenHeader(title: "Collection", back: { model.goHome() }) {
+                Text(countLabel)
+                    .font(.fmBody(16))
+                    .foregroundStyle(.white.opacity(0.85))
+                    .frame(minWidth: 44, alignment: .trailing)
+            }
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 16) {
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 4), spacing: 12) {
+                        ForEach(Array(slots.enumerated()), id: \.offset) { _, theme in
+                            cell(theme)
+                        }
                     }
-                    .accessibilityIdentifier("back-button")
-                    Spacer()
-                    Text("Collection")
-                        .font(.fmDisplay(24))
-                        .foregroundStyle(.white)
-                    Spacer()
-                    Text(countLabel)
-                        .font(.fmBody(16))
-                        .foregroundStyle(.white.opacity(0.85))
-                        .frame(minWidth: 42, alignment: .trailing)
-                }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 10)
-
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 4), spacing: 12) {
-                    ForEach(Array(slots.enumerated()), id: \.offset) { _, theme in
-                        cell(theme)
+                    Button {
+                        model.screen = .fishpedia
+                    } label: {
+                        Label("Open Fishpedia", systemImage: "book.fill")
+                            .font(.fmBody(15))
+                            .foregroundStyle(Palette.aqua)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 12)
                     }
+                    .buttonStyle(.plain)
+                    .accessibilityIdentifier("fishpedia-button")
                 }
                 .padding(16)
-
-                Button {
-                    model.screen = .fishpedia
-                } label: {
-                    Label("Open Fishpedia", systemImage: "book.fill")
-                        .font(.fmBody(15))
-                        .foregroundStyle(Palette.aqua)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 12)
-                }
-                .buttonStyle(.plain)
-                .accessibilityIdentifier("fishpedia-button")
-                Spacer()
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }
+        .fillScreenTop()
+        .background { OceanBackdrop(asset: "CrystalCaveBackground", dim: 0.45) }
     }
 
     private var countLabel: String {

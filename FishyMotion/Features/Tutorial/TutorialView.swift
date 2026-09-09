@@ -11,12 +11,10 @@ struct TutorialView: View {
     ]
 
     var body: some View {
-        ZStack {
-            OceanBackdrop(asset: "CoralReefBackground", dim: 0.5)
-            VStack(spacing: 22) {
-                ScreenHeader(title: "How to play") { model.goHome() }
+        VStack(spacing: 22) {
+            ScreenHeader(title: "How to play") { model.goHome() }
 
-                Spacer()
+            Spacer(minLength: 8)
 
                 let item = pages[page]
                 Image(systemName: item.0)
@@ -62,9 +60,10 @@ struct TutorialView: View {
                 }
                 .padding(.horizontal, 28)
                 .accessibilityIdentifier("tutorial-next")
-            }
-            .padding(.bottom, 24)
         }
+        .padding(.bottom, 24)
+        .fillScreenTop()
+        .background { OceanBackdrop(asset: "CoralReefBackground", dim: 0.5) }
     }
 
     private var demoSchool: some View {

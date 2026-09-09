@@ -4,33 +4,32 @@ struct HomeView: View {
     @Environment(AppModel.self) private var model
 
     var body: some View {
-        ZStack {
-            OceanBackdrop(asset: "CoralReefBackground", dim: 0.22)
-            VStack(spacing: 18) {
-                Spacer(minLength: 24)
-                title
-                playCircle
-                    .padding(.vertical, 8)
-                VStack(spacing: 12) {
-                    stackButton("Worlds", id: "worlds-button") { model.screen = .worlds }
-                    stackButton("Daily Puzzle", id: "daily-button") { model.screen = .daily }
-                    stackButton("Collection", id: "collection-button") { model.screen = .collection }
-                    stackButton("Settings", id: "settings-button") { model.screen = .settings }
-                }
-                .padding(.horizontal, 28)
-
-                HStack(spacing: 0) {
-                    dock("trophy.fill", "collection-dock") { model.screen = .collection }
-                    dock("calendar", "daily-dock") { model.screen = .daily }
-                    dock("gearshape.fill", "settings-dock") { model.screen = .settings }
-                }
-                .padding(6)
-                .background(Color.white.opacity(0.12), in: Capsule())
-                .padding(.horizontal, 36)
-                .padding(.top, 8)
-                .padding(.bottom, 18)
+        VStack(spacing: 18) {
+            Spacer(minLength: 12)
+            title
+            playCircle
+                .padding(.vertical, 8)
+            VStack(spacing: 12) {
+                stackButton("Worlds", id: "worlds-button") { model.screen = .worlds }
+                stackButton("Daily Puzzle", id: "daily-button") { model.screen = .daily }
+                stackButton("Collection", id: "collection-button") { model.screen = .collection }
+                stackButton("Settings", id: "settings-button") { model.screen = .settings }
             }
+            .padding(.horizontal, 28)
+
+            HStack(spacing: 0) {
+                dock("trophy.fill", "collection-dock") { model.screen = .collection }
+                dock("calendar", "daily-dock") { model.screen = .daily }
+                dock("gearshape.fill", "settings-dock") { model.screen = .settings }
+            }
+            .padding(6)
+            .background(Color.white.opacity(0.12), in: Capsule())
+            .padding(.horizontal, 36)
+            .padding(.top, 8)
+            .padding(.bottom, 8)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background { OceanBackdrop(asset: "CoralReefBackground", dim: 0.22) }
     }
 
     private var title: some View {

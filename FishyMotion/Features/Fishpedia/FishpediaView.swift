@@ -4,23 +4,24 @@ struct FishpediaView: View {
     @Environment(AppModel.self) private var model
 
     var body: some View {
-        ZStack {
-            OceanBackdrop(asset: "CoralReefBackground", dim: 0.55)
-            VStack(spacing: 0) {
-                ScreenHeader(title: "Fishpedia") { model.screen = .collection }
-                ScrollView(showsIndicators: false) {
-                    VStack(alignment: .leading, spacing: 16) {
-                        headerCard
-                        ForEach(LieKind.allCases) { lie in
-                            lieCard(lie)
-                        }
+        VStack(spacing: 0) {
+            ScreenHeader(title: "Fishpedia") { model.screen = .collection }
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 16) {
+                    headerCard
+                    ForEach(LieKind.allCases) { lie in
+                        lieCard(lie)
                     }
-                    .padding(20)
-                    .frame(maxWidth: 640)
-                    .frame(maxWidth: .infinity)
                 }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 28)
+                .frame(maxWidth: 640)
+                .frame(maxWidth: .infinity)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }
+        .fillScreenTop()
+        .background { OceanBackdrop(asset: "CoralReefBackground", dim: 0.55) }
     }
 
     private var headerCard: some View {
@@ -35,6 +36,7 @@ struct FishpediaView: View {
                 .frame(height: 90)
         }
         .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color.white.opacity(0.08), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
     }
 
