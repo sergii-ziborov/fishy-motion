@@ -29,15 +29,23 @@ struct CreatureView: View {
         .allowsHitTesting(false)
     }
 
+    private static let classicFrames = [
+        "FishClassic00", "FishClassic01", "FishClassic02", "FishClassic03",
+        "FishClassic04", "FishClassic05", "FishClassic06"
+    ]
+    private static let classicOrder = [0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1]
+
     private var spriteFish: some View {
-        let beat = Darwin.sin(time * 9.2 + phase)
+        let frames = Self.classicFrames
+        let order = Self.classicOrder
+        let idx = order[abs(Int((time * 16 + phase).rounded(.down))) % order.count]
         let facingLeft = Darwin.cos(heading) < 0
-        let tilt = Darwin.sin(heading) * 0.22 + beat * 0.08
-        return Image("FishClassic00")
+        let tilt = Darwin.sin(heading) * 0.16
+        return Image(frames[idx])
             .resizable()
             .interpolation(.high)
             .scaledToFit()
-            .scaleEffect(x: (facingLeft ? -1 : 1) * (1 + beat * 0.04), y: 1 - beat * 0.03)
+            .scaleEffect(x: facingLeft ? -1 : 1, y: 1)
             .rotationEffect(.radians(tilt))
             .opacity(dimmed ? 0.42 : 1)
             .padding(4)
