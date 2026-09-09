@@ -1,0 +1,779 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00C205B84EA6408BC66E5AF9 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E00AA67D384B1BAEF7CFCC4 /* AppModel.swift */; };
+		10BB56FF6777FB5D56EAA477 /* CreatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B7D5B943A10D91C3AAFFC /* CreatureView.swift */; };
+		151D18301404967CF31E3847 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE26BBEB6664F01244FE1 /* DailyView.swift */; };
+		1AA233A9AF5A93F764CF94DD /* Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6724AA6C1CE8E602884292A /* Motion.swift */; };
+		28FD40862929EB640AADAE6B /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EC507B6ECE9D4E1D367728 /* TutorialView.swift */; };
+		3604ACBF975A313B14550D55 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131B0E31A3F3CD337B247918 /* CollectionView.swift */; };
+		3DFE3F2FFD86A7D0FC6CE882 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9D6D3430526378F550D41A /* Models.swift */; };
+		3FF6231C790870DE8C623901 /* HintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ABD623733BB486F09FC2C5 /* HintsView.swift */; };
+		508872AB82A5F3F8D2108FF3 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D27A905009681E8EF9C5CB9 /* ResultView.swift */; };
+		69933787AC22A364ACDDC87D /* WorldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CFE16201D3EE5C4F61D4B /* WorldsView.swift */; };
+		7085E2B5268C40CED02DAED2 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258F052467BFAAFC1AFEDF4A /* Feedback.swift */; };
+		7982817D36FEB0239D1C837C /* FishyMotionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB192175921D1C088358A0C /* FishyMotionUITests.swift */; };
+		81BA474FADBAA6ADACBE1B2D /* MotionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16643DF137FD2DC106E86BE8 /* MotionTests.swift */; };
+		AD68643E88CEC27C06D012BE /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62694676DB0B9A2112ED9B9F /* DesignSystem.swift */; };
+		AF67FE37C68F77584D13CB9A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C9D41F7606F75BEDAB332 /* HomeView.swift */; };
+		B2C05C77862A184B0A57957B /* Stores.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EA6318C5891437D490BDE5 /* Stores.swift */; };
+		C697D2E6F41434A7D7B25F18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF7BC03634643ACA4ADA893C /* Assets.xcassets */; };
+		C92F198FCAF1A0F7D2443461 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72148A934208221CDF5E314 /* Catalog.swift */; };
+		CB7F959F5FBE422BBE4B934A /* SeededRNG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A710CB221ECA2763499B887F /* SeededRNG.swift */; };
+		CE7E45410EFB13FC3C9CAB4E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB63FCE1AADEAA544F9B99E /* SettingsView.swift */; };
+		D2BBF94994DBF65B0EF95149 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = FBD6704D62DCB19CACBDD9DD /* PrivacyInfo.xcprivacy */; };
+		D59D2DB98D5BA1F576B6AAF9 /* FishpediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF138F93DFDE86BACF3B7DE /* FishpediaView.swift */; };
+		DA8DE916696CC845B704ED8F /* SchoolStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4B13E5E102B46E93F1F91B /* SchoolStage.swift */; };
+		E83FC6C76137C567EF0DF4B4 /* FishyMotionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CDF3DF175F70756B52D2AF /* FishyMotionApp.swift */; };
+		F9F7236E654395ECADB75B8A /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0847339E3695E402F746E671 /* PlayView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		16F4122DE70FBF7DADB8243C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 885D904A036D9C201618EFAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 775C639FE959067BB8C043F9;
+			remoteInfo = FishyMotion;
+		};
+		E46C43F34E011932DBAE832C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 885D904A036D9C201618EFAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 775C639FE959067BB8C043F9;
+			remoteInfo = FishyMotion;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		049B7D5B943A10D91C3AAFFC /* CreatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureView.swift; sourceTree = "<group>"; };
+		0847339E3695E402F746E671 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
+		131B0E31A3F3CD337B247918 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		16643DF137FD2DC106E86BE8 /* MotionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionTests.swift; sourceTree = "<group>"; };
+		1D27A905009681E8EF9C5CB9 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		258F052467BFAAFC1AFEDF4A /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		2E00AA67D384B1BAEF7CFCC4 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		2FE3F561AF1ECC9E840AAED9 /* FishyMotionUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = FishyMotionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		35ABD623733BB486F09FC2C5 /* HintsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintsView.swift; sourceTree = "<group>"; };
+		45EC507B6ECE9D4E1D367728 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		4DB63FCE1AADEAA544F9B99E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		62694676DB0B9A2112ED9B9F /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+		906CE26BBEB6664F01244FE1 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
+		911C9D41F7606F75BEDAB332 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9D3019E37EA102A4EBEA6787 /* FishyMotion.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FishyMotion.entitlements; sourceTree = "<group>"; };
+		9F9D6D3430526378F550D41A /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		A710CB221ECA2763499B887F /* SeededRNG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeededRNG.swift; sourceTree = "<group>"; };
+		ADB192175921D1C088358A0C /* FishyMotionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishyMotionUITests.swift; sourceTree = "<group>"; };
+		B72148A934208221CDF5E314 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
+		BF18D8E014F77BD9B02BF885 /* FishyMotion.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FishyMotion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D26EC7EBE4EE34CB73F19DC8 /* FishyMotionTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = FishyMotionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE4B13E5E102B46E93F1F91B /* SchoolStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolStage.swift; sourceTree = "<group>"; };
+		E10CFE16201D3EE5C4F61D4B /* WorldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldsView.swift; sourceTree = "<group>"; };
+		E4EA6318C5891437D490BDE5 /* Stores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stores.swift; sourceTree = "<group>"; };
+		E6724AA6C1CE8E602884292A /* Motion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Motion.swift; sourceTree = "<group>"; };
+		F4CDF3DF175F70756B52D2AF /* FishyMotionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishyMotionApp.swift; sourceTree = "<group>"; };
+		FBD6704D62DCB19CACBDD9DD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		FEF138F93DFDE86BACF3B7DE /* FishpediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishpediaView.swift; sourceTree = "<group>"; };
+		FF7BC03634643ACA4ADA893C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		28717FCF0FC2F818F4DA6DED /* Worlds */ = {
+			isa = PBXGroup;
+			children = (
+				E10CFE16201D3EE5C4F61D4B /* WorldsView.swift */,
+			);
+			path = Worlds;
+			sourceTree = "<group>";
+		};
+		28D39A0AE1A02DCCC5892C8F /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				1D27A905009681E8EF9C5CB9 /* ResultView.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		32E331F7745580F3EE52328C /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				392F632412DBF1E32AF24ADC /* Collection */,
+				87A8CC1BE8DDD3DEA4F73591 /* Daily */,
+				623088798D96DB36D6BD51AB /* Fishpedia */,
+				F6D7817E0C0946929C0A06D1 /* Home */,
+				3E3AA4B9D949304FDD2191E4 /* Play */,
+				28D39A0AE1A02DCCC5892C8F /* Result */,
+				5CA2D736279DDF800D2EE766 /* Settings */,
+				75EAC932F47BBF8FD0990541 /* Tutorial */,
+				28717FCF0FC2F818F4DA6DED /* Worlds */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		392F632412DBF1E32AF24ADC /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				131B0E31A3F3CD337B247918 /* CollectionView.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		3E3AA4B9D949304FDD2191E4 /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				35ABD623733BB486F09FC2C5 /* HintsView.swift */,
+				0847339E3695E402F746E671 /* PlayView.swift */,
+			);
+			path = Play;
+			sourceTree = "<group>";
+		};
+		3EA0A648FC519827FAE8E3AB /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				55795313E503931C8BD191DF /* Creatures */,
+				FE4250ECD13227E6E1900D4C /* Engine */,
+				CFD83CD12B99AE5E04F8855D /* Stage */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		45C2A87F88A47E338ECA03B4 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				258F052467BFAAFC1AFEDF4A /* Feedback.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		55795313E503931C8BD191DF /* Creatures */ = {
+			isa = PBXGroup;
+			children = (
+				049B7D5B943A10D91C3AAFFC /* CreatureView.swift */,
+			);
+			path = Creatures;
+			sourceTree = "<group>";
+		};
+		5CA2D736279DDF800D2EE766 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				4DB63FCE1AADEAA544F9B99E /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		610244E6DDC35B7D36ABEAB7 = {
+			isa = PBXGroup;
+			children = (
+				81D15D36C53E97EDEFBF608B /* FishyMotion */,
+				65569B0F676B55734B6A64F5 /* FishyMotionTests */,
+				A0D62BD3E89C6578F982969C /* FishyMotionUITests */,
+				DF61DA8F4C1D2FCE54C44E36 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		623088798D96DB36D6BD51AB /* Fishpedia */ = {
+			isa = PBXGroup;
+			children = (
+				FEF138F93DFDE86BACF3B7DE /* FishpediaView.swift */,
+			);
+			path = Fishpedia;
+			sourceTree = "<group>";
+		};
+		65569B0F676B55734B6A64F5 /* FishyMotionTests */ = {
+			isa = PBXGroup;
+			children = (
+				16643DF137FD2DC106E86BE8 /* MotionTests.swift */,
+			);
+			path = FishyMotionTests;
+			sourceTree = "<group>";
+		};
+		74CA840ED08C63B5465A58FB /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				62694676DB0B9A2112ED9B9F /* DesignSystem.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		75EAC932F47BBF8FD0990541 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				45EC507B6ECE9D4E1D367728 /* TutorialView.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		81D15D36C53E97EDEFBF608B /* FishyMotion */ = {
+			isa = PBXGroup;
+			children = (
+				B675F18EA5B6180BFD9A7BCC /* App */,
+				45C2A87F88A47E338ECA03B4 /* Audio */,
+				74CA840ED08C63B5465A58FB /* DesignSystem */,
+				32E331F7745580F3EE52328C /* Features */,
+				3EA0A648FC519827FAE8E3AB /* Game */,
+				AADE9798AD0095E72AA8FA9C /* Persistence */,
+				A3975592913F5392B36E4E8B /* Resources */,
+				9D3019E37EA102A4EBEA6787 /* FishyMotion.entitlements */,
+			);
+			path = FishyMotion;
+			sourceTree = "<group>";
+		};
+		87A8CC1BE8DDD3DEA4F73591 /* Daily */ = {
+			isa = PBXGroup;
+			children = (
+				906CE26BBEB6664F01244FE1 /* DailyView.swift */,
+			);
+			path = Daily;
+			sourceTree = "<group>";
+		};
+		A0D62BD3E89C6578F982969C /* FishyMotionUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ADB192175921D1C088358A0C /* FishyMotionUITests.swift */,
+			);
+			path = FishyMotionUITests;
+			sourceTree = "<group>";
+		};
+		A3975592913F5392B36E4E8B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF7BC03634643ACA4ADA893C /* Assets.xcassets */,
+				FBD6704D62DCB19CACBDD9DD /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AADE9798AD0095E72AA8FA9C /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				E4EA6318C5891437D490BDE5 /* Stores.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		B675F18EA5B6180BFD9A7BCC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2E00AA67D384B1BAEF7CFCC4 /* AppModel.swift */,
+				F4CDF3DF175F70756B52D2AF /* FishyMotionApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		CFD83CD12B99AE5E04F8855D /* Stage */ = {
+			isa = PBXGroup;
+			children = (
+				DE4B13E5E102B46E93F1F91B /* SchoolStage.swift */,
+			);
+			path = Stage;
+			sourceTree = "<group>";
+		};
+		DF61DA8F4C1D2FCE54C44E36 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF18D8E014F77BD9B02BF885 /* FishyMotion.app */,
+				D26EC7EBE4EE34CB73F19DC8 /* FishyMotionTests.xctest */,
+				2FE3F561AF1ECC9E840AAED9 /* FishyMotionUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F6D7817E0C0946929C0A06D1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				911C9D41F7606F75BEDAB332 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FE4250ECD13227E6E1900D4C /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				B72148A934208221CDF5E314 /* Catalog.swift */,
+				9F9D6D3430526378F550D41A /* Models.swift */,
+				E6724AA6C1CE8E602884292A /* Motion.swift */,
+				A710CB221ECA2763499B887F /* SeededRNG.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		775C639FE959067BB8C043F9 /* FishyMotion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DAD284E977E7C2AC67EEB58 /* Build configuration list for PBXNativeTarget "FishyMotion" */;
+			buildPhases = (
+				9F6F9F62AC44B59E4FD1B0B6 /* Sources */,
+				A258EB71127FC98CAF854EBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FishyMotion;
+			packageProductDependencies = (
+			);
+			productName = FishyMotion;
+			productReference = BF18D8E014F77BD9B02BF885 /* FishyMotion.app */;
+			productType = "com.apple.product-type.application";
+		};
+		926CF4FDFC2AFB98E1E5E123 /* FishyMotionUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D89D651D92ACC4B73015EEDA /* Build configuration list for PBXNativeTarget "FishyMotionUITests" */;
+			buildPhases = (
+				B0C49358D552312E48AD0BDB /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A09C8CD5D4045757FD65BB8 /* PBXTargetDependency */,
+			);
+			name = FishyMotionUITests;
+			packageProductDependencies = (
+			);
+			productName = FishyMotionUITests;
+			productReference = 2FE3F561AF1ECC9E840AAED9 /* FishyMotionUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		A47B3120262B9C19A3EFF46F /* FishyMotionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0F3492A12921D129DD780B67 /* Build configuration list for PBXNativeTarget "FishyMotionTests" */;
+			buildPhases = (
+				8FFC3231EB95A83D02CF36D1 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B00B2F5F830B3C90F4F6E07E /* PBXTargetDependency */,
+			);
+			name = FishyMotionTests;
+			packageProductDependencies = (
+			);
+			productName = FishyMotionTests;
+			productReference = D26EC7EBE4EE34CB73F19DC8 /* FishyMotionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		885D904A036D9C201618EFAA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					775C639FE959067BB8C043F9 = {
+						DevelopmentTeam = XMS5ZC28UJ;
+					};
+					926CF4FDFC2AFB98E1E5E123 = {
+						DevelopmentTeam = XMS5ZC28UJ;
+						TestTargetID = 775C639FE959067BB8C043F9;
+					};
+					A47B3120262B9C19A3EFF46F = {
+						DevelopmentTeam = XMS5ZC28UJ;
+					};
+				};
+			};
+			buildConfigurationList = 649AAB01C00E16779EFE406D /* Build configuration list for PBXProject "FishyMotion" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 610244E6DDC35B7D36ABEAB7;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = DF61DA8F4C1D2FCE54C44E36 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				775C639FE959067BB8C043F9 /* FishyMotion */,
+				A47B3120262B9C19A3EFF46F /* FishyMotionTests */,
+				926CF4FDFC2AFB98E1E5E123 /* FishyMotionUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A258EB71127FC98CAF854EBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C697D2E6F41434A7D7B25F18 /* Assets.xcassets in Resources */,
+				D2BBF94994DBF65B0EF95149 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8FFC3231EB95A83D02CF36D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81BA474FADBAA6ADACBE1B2D /* MotionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F6F9F62AC44B59E4FD1B0B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00C205B84EA6408BC66E5AF9 /* AppModel.swift in Sources */,
+				C92F198FCAF1A0F7D2443461 /* Catalog.swift in Sources */,
+				3604ACBF975A313B14550D55 /* CollectionView.swift in Sources */,
+				10BB56FF6777FB5D56EAA477 /* CreatureView.swift in Sources */,
+				151D18301404967CF31E3847 /* DailyView.swift in Sources */,
+				AD68643E88CEC27C06D012BE /* DesignSystem.swift in Sources */,
+				7085E2B5268C40CED02DAED2 /* Feedback.swift in Sources */,
+				D59D2DB98D5BA1F576B6AAF9 /* FishpediaView.swift in Sources */,
+				E83FC6C76137C567EF0DF4B4 /* FishyMotionApp.swift in Sources */,
+				3FF6231C790870DE8C623901 /* HintsView.swift in Sources */,
+				AF67FE37C68F77584D13CB9A /* HomeView.swift in Sources */,
+				3DFE3F2FFD86A7D0FC6CE882 /* Models.swift in Sources */,
+				1AA233A9AF5A93F764CF94DD /* Motion.swift in Sources */,
+				F9F7236E654395ECADB75B8A /* PlayView.swift in Sources */,
+				508872AB82A5F3F8D2108FF3 /* ResultView.swift in Sources */,
+				DA8DE916696CC845B704ED8F /* SchoolStage.swift in Sources */,
+				CB7F959F5FBE422BBE4B934A /* SeededRNG.swift in Sources */,
+				CE7E45410EFB13FC3C9CAB4E /* SettingsView.swift in Sources */,
+				B2C05C77862A184B0A57957B /* Stores.swift in Sources */,
+				28FD40862929EB640AADAE6B /* TutorialView.swift in Sources */,
+				69933787AC22A364ACDDC87D /* WorldsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0C49358D552312E48AD0BDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7982817D36FEB0239D1C837C /* FishyMotionUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3A09C8CD5D4045757FD65BB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 775C639FE959067BB8C043F9 /* FishyMotion */;
+			targetProxy = 16F4122DE70FBF7DADB8243C /* PBXContainerItemProxy */;
+		};
+		B00B2F5F830B3C90F4F6E07E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 775C639FE959067BB8C043F9 /* FishyMotion */;
+			targetProxy = E46C43F34E011932DBAE832C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		13E0D38C25BE4C8E76FA353F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = XMS5ZC28UJ;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1A1A12FF80701ABD4142EB4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sergiiziborov.fishymotion.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FishyMotion.app/FishyMotion";
+			};
+			name = Debug;
+		};
+		2FFF6DBDED22FD74DE591773 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sergiiziborov.fishymotion.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FishyMotion.app/FishyMotion";
+			};
+			name = Release;
+		};
+		3BEF6226DECBF0A75C240980 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FishyMotion/FishyMotion.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDevelopmentRegion = en;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fishy Motion";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_BackgroundColor = oceanBackground;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sergiiziborov.fishymotion;
+				PRODUCT_NAME = FishyMotion;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		71C612B8A7A0BF509AD81E13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sergiiziborov.fishymotion.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FishyMotion;
+			};
+			name = Release;
+		};
+		CCA945335EF9CF7CC15B373F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sergiiziborov.fishymotion.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FishyMotion;
+			};
+			name = Debug;
+		};
+		DD7E81874DE5D9865E53B9E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FishyMotion/FishyMotion.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDevelopmentRegion = en;
+				INFOPLIST_KEY_CFBundleDisplayName = "Fishy Motion";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_BackgroundColor = oceanBackground;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sergiiziborov.fishymotion;
+				PRODUCT_NAME = FishyMotion;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FDBD8D17B8AAA020C7F0A8A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = XMS5ZC28UJ;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0F3492A12921D129DD780B67 /* Build configuration list for PBXNativeTarget "FishyMotionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A1A12FF80701ABD4142EB4B /* Debug */,
+				2FFF6DBDED22FD74DE591773 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		649AAB01C00E16779EFE406D /* Build configuration list for PBXProject "FishyMotion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDBD8D17B8AAA020C7F0A8A5 /* Debug */,
+				13E0D38C25BE4C8E76FA353F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6DAD284E977E7C2AC67EEB58 /* Build configuration list for PBXNativeTarget "FishyMotion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BEF6226DECBF0A75C240980 /* Debug */,
+				DD7E81874DE5D9865E53B9E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D89D651D92ACC4B73015EEDA /* Build configuration list for PBXNativeTarget "FishyMotionUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCA945335EF9CF7CC15B373F /* Debug */,
+				71C612B8A7A0BF509AD81E13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 885D904A036D9C201618EFAA /* Project object */;
+}

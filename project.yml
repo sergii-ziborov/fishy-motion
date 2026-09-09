@@ -1,0 +1,75 @@
+name: FishyMotion
+
+options:
+  bundleIdPrefix: com.sergiiziborov
+  deploymentTarget:
+    iOS: "18.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    DEVELOPMENT_TEAM: XMS5ZC28UJ
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    IPHONEOS_DEPLOYMENT_TARGET: "18.0"
+    TARGETED_DEVICE_FAMILY: "1,2"
+    SUPPORTS_MACCATALYST: NO
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+
+targets:
+  FishyMotion:
+    type: application
+    platform: iOS
+    sources:
+      - path: FishyMotion
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sergiiziborov.fishymotion
+        PRODUCT_NAME: FishyMotion
+        INFOPLIST_KEY_CFBundleDisplayName: Fishy Motion
+        INFOPLIST_KEY_CFBundleDevelopmentRegion: en
+        INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.games
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UILaunchScreen_BackgroundColor: oceanBackground
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        GENERATE_INFOPLIST_FILE: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        SWIFT_STRICT_CONCURRENCY: complete
+    scheme:
+      testTargets:
+        - FishyMotionTests
+        - FishyMotionUITests
+      gatherCoverageData: false
+    entitlements:
+      path: FishyMotion/FishyMotion.entitlements
+
+  FishyMotionTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: FishyMotionTests
+    dependencies:
+      - target: FishyMotion
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sergiiziborov.fishymotion.tests
+        GENERATE_INFOPLIST_FILE: YES
+
+  FishyMotionUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: FishyMotionUITests
+    dependencies:
+      - target: FishyMotion
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sergiiziborov.fishymotion.uitests
+        GENERATE_INFOPLIST_FILE: YES
