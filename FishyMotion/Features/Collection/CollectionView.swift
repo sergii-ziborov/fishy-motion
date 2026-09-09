@@ -86,12 +86,14 @@ struct CollectionView: View {
                         )
                         .padding(8)
                     }
-                } else if theme != nil {
-                    CreatureView(theme: .classic, heading: 0.15, wiggle: 0)
-                        .opacity(0.18)
+                } else if let theme {
+                    CreatureView(theme: theme, heading: 0.12, wiggle: 0)
+                        .padding(8)
+                        .opacity(0.55)
                         .overlay {
                             Image(systemName: "lock.fill")
-                                .foregroundStyle(.white.opacity(0.8))
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundStyle(.white.opacity(0.9))
                         }
                 } else {
                     Image(systemName: "lock.fill")

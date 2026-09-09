@@ -16,11 +16,7 @@ struct CreatureView: View {
     var body: some View {
         ZStack {
             ringView
-            if theme == .classic {
-                spriteFish
-            } else {
-                canvasFish
-            }
+            spriteFish
         }
         .scaleEffect((highlighted || pressed) ? 1.14 : 1)
         .shadow(color: .black.opacity(pressed ? 0.35 : 0.18), radius: pressed ? 10 : 6, y: 4)
@@ -35,17 +31,36 @@ struct CreatureView: View {
     ]
     private static let classicOrder = [0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1]
 
+    private var frameNames: [String] {
+        switch theme {
+        case .classic: Self.classicFrames
+        case .toys: ["FishToys00"]
+        case .koi: ["FishKoi00"]
+        case .robots: ["FishRobot00"]
+        case .ghosts: ["FishGhost00"]
+        case .jellyfish: ["FishJelly00"]
+        }
+    }
+
     private var spriteFish: some View {
-        let frames = Self.classicFrames
-        let order = Self.classicOrder
-        let idx = order[abs(Int((time * 16 + phase).rounded(.down))) % order.count]
-        let facingLeft = Darwin.cos(heading) < 0
-        let tilt = Darwin.sin(heading) * 0.16
+        let frames = frameNames
+        let idx: Int
+        if frames.count == 1 {
+            idx = 0
+        } else {
+            idx = Self.classicOrder[abs(Int((time * 16 + phase).rounded(.down))) % Self.classicOrder.count]
+        }
+        let beat = Darwin.sin(time * 9.0 + phase)
+        let facingLeft = theme != .jellyfish && Darwin.cos(heading) < 0
+        let tilt = theme == .jellyfish ? beat * 0.06 : Darwin.sin(heading) * 0.16
         return Image(frames[idx])
             .resizable()
             .interpolation(.high)
             .scaledToFit()
-            .scaleEffect(x: facingLeft ? -1 : 1, y: 1)
+            .scaleEffect(
+                x: (facingLeft ? -1 : 1) * (1 + beat * 0.035),
+                y: 1 - beat * 0.025
+            )
             .rotationEffect(.radians(tilt))
             .opacity(dimmed ? 0.42 : 1)
             .padding(4)

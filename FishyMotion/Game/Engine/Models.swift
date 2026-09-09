@@ -224,7 +224,7 @@ struct ProgressState: Codable, Equatable, Sendable {
     static let fresh = ProgressState(
         starsByLevel: [:],
         seenLies: [],
-        unlockedThemes: [.classic],
+        unlockedThemes: Set(ThemeID.allCases),
         selectedTheme: .classic,
         soundEnabled: true,
         musicEnabled: true,

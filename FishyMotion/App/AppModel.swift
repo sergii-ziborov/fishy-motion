@@ -27,6 +27,7 @@ final class AppModel {
     init(store: ProgressStore = ProgressStore()) {
         self.store = store
         var loaded = store.load()
+        loaded.unlockedThemes.formUnion(ThemeID.allCases)
         if ProcessInfo.processInfo.arguments.contains(where: {
             $0 == "ui-testing" || $0 == "auto-play" || $0 == "-auto-play"
         }) {
